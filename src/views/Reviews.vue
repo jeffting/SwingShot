@@ -1,32 +1,21 @@
 <template>
     <div id="reviews" style="margin-top: 90px;">
-        <div style="display:flex;">
-            <div style="flex-flow:row; justify-content:space-around;">
-                <!-- <div>
-                    <h3>Swingshot <br>reviews: Hear<br> from our<br> customers</h3>
-                    <v-divider></v-divider>
-                    <v-rating v-model="totalRating"></v-rating>
-                    <div id="player"></div>
-                </div>
+        <div style="display:flex; justify-content:space-around;">
+            <div style="display:flex; flex-direction:column; justify-content: space-around">
+                <h1>Swingshot <br>reviews: Hear<br> from our<br> customers</h1>
+                <v-divider></v-divider>
                 <div>
-                    <div>ok</div>
-                </div> -->
-                <div>OK</div>
-                <div>GET</div>
+                    <v-rating v-model="totalRating"></v-rating>
+                    <h3>{{totalRating}} average rating from {{totalReviewNumbers}} customer reviews</h3>
+                </div>
+            </div>
+            <div>
+                <div id="player"></div>
             </div>
         </div>
-        <!-- <v-row>
-            <v-col cols="12">
-                <v-row align="center" justify="center">
-                    <div>
-                        <h3>Swingshot <br>reviews: Hear<br> from our<br> customers</h3>
-                        <v-divider></v-divider>
-                        <v-rating v-model="totalRating"></v-rating>
-                    </div>
-                </v-row>
-            </v-col>
-        </v-row> -->
-            <!-- <h1>ok</!-->
+        <div style="display:flex; justify-content:center;">
+            <h2>Over {{salesNumber}} people are enjoying shooting with the Swingshot. In fact, they swing buy to tell us how much fun they had.</h2>
+        </div>
     </div>
 </template>
 <script src='https://www.youtube.com/iframe_api' async></script>
@@ -53,7 +42,9 @@ export default {
                     reviewText: "My 9-yea-old is too small for it"
                 }
             ],
-            totalRating: 4.5
+            totalRating: 4.5,
+            totalReviewNumbers: 10,
+            salesNumber: 100
         }
     },
     mounted(){
