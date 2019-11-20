@@ -36,7 +36,7 @@
 
     <router-view/>
 
-    <v-footer padless absolute style="padding-top: 15px;">
+    <!-- <v-footer padless absolute style="padding-top: 15px;">
         <v-card
       flat
       tile
@@ -64,7 +64,7 @@
         {{ new Date().getFullYear() }} Swingshot, LLC. All rights reserved.
       </v-card-text>
     </v-card>
-    </v-footer>
+    </v-footer> -->
   </v-app>
 </template>
 
