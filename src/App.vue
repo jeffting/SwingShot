@@ -1,85 +1,67 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      elevate-on-scroll
-      color="transparent"
-    >
+    <v-app-bar app elevate-on-scroll color="rgba(0, 0, 0, 0.6)">
+      <v-app-bar-nav-icon class="show-only-mobile" @click="drawer = true" color="white"></v-app-bar-nav-icon>
       <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <v-btn x-large text color="white" @click="$router.push('/')">Swing-Shot</v-btn>
       </div>
 
-      <v-spacer></v-spacer>
+      <v-btn class="hide-mobile" large text color="white" @click="$router.push('shop')">shop</v-btn>
+      <v-btn class="hide-mobile" large text color="white" @click="$router.push('about')">Learn More</v-btn>
 
-      <v-btn large text>shop
-      </v-btn>
-      <v-btn @click="$router.push('reviews')" large text>
-          Reviews
-      </v-btn>
+      <!-- <v-btn @click="$router.push('reviews')" large text color="white">Reviews</v-btn> -->
     </v-app-bar>
+    <v-navigation-drawer v-model="drawer" absolute temporary>
+      <v-list nav dense>
+        <v-list-item-group active-class="deep-orange--text text--accent-4">
+          <v-list-item @click="$router.push('/')">
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Swing-Shot</v-list-item-title>
+          </v-list-item>
 
-    <router-view/>
+          <v-list-item @click="$router.push('shop')">
+            <v-list-item-icon>
+              <v-icon>mdi-account</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Shop</v-list-item-title>
+          </v-list-item>
 
-    <!-- <v-footer padless absolute style="padding-top: 15px;">
-        <v-card
-      flat
-      tile
-      class="orange lighten-1 white--text text-center"
-    >
-      <v-card-text>
-        <v-btn
-          v-for="icon in icons"
-          :key="icon"
-          class="mx-4 white--text"
-          icon
-        >
-          <v-icon size="24px">{{ icon }}</v-icon>
-        </v-btn>
-      </v-card-text>
-
-      <v-card-text class="white--text pt-0">
-        Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-      </v-card-text>
-
-      <v-divider></v-divider>
-
-      <v-card-text class="white--text">
-          <v-icon>mdi-copyright</v-icon>
-        {{ new Date().getFullYear() }} Swingshot, LLC. All rights reserved.
-      </v-card-text>
-    </v-card>
-    </v-footer> -->
+          <v-list-item @click="$router.push('about')">
+            <v-list-item-icon>
+              <v-icon>mdi-account</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Learn More</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
+    <router-view />
+    <v-row align="center" justify="center">
+      <v-col class="text-center" cols="12">
+        <h2 class="title_text">Contact us</h2>
+        <h2>swingshotcpt@gmail.com</h2>
+        <br />
+        <br />
+      </v-col>
+    </v-row>
   </v-app>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+  name: "App",
   data: () => ({
-      icons: [
-        'fab fa-facebook',
-        'fab fa-twitter',
-        'fab fa-google-plus',
-        'fab fa-linkedin',
-        'fab fa-instagram',
-      ],
-    }),
+    drawer: false,
+    icons: [
+      "fab fa-facebook",
+      "fab fa-twitter",
+      "fab fa-google-plus",
+      "fab fa-linkedin",
+      "fab fa-instagram"
+    ]
+  })
 };
 </script>
+
